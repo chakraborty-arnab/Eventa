@@ -1,14 +1,28 @@
-What is Eventa?
+# Eventa
 
-Eventa is a local, event-driven personal AI that turns messages into actions.
+A local, event-driven personal AI that logs your life via Discord.
 
-You talk to it via Discord.
-It listens, understands, and acts.
+Send a text, voice message, or image — Eventa understands and logs it.
 
-Architecture
+## What it logs
 
-UI: Discord
-Messaging: NATS (JetStream)
-ASR: Whisper (In future)
-LLM: Openrouter
-Storage: Postgres 
+- **Food** — "had a protein bar"
+- **Weight** — "76kg" or photo of a scale
+- **Sleep** — "slept at 11pm, woke at 7am"
+- **Workout** — "bench press 3x8 60kg", "ran 5km"
+
+## Setup
+
+Add to `.env`:
+```
+DISCORD_TOKEN=
+OPENROUTER_API_KEY=
+```
+
+See `ingress/README.md` for Discord bot setup.
+
+## Run
+
+```bash
+make eventa
+```

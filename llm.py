@@ -21,3 +21,22 @@ def chat(messages: list[dict], system_prompt: str = None) -> str:
         messages=messages,
     )
     return response.choices[0].message.content
+
+
+def chat_with_image(image_url: str, prompt: str, system_prompt: str = None) -> str:
+    messages = []
+    if system_prompt:
+        messages.append({"role": "system", "content": system_prompt})
+    messages.append({
+        "role": "user",
+        "content": [
+            {"type": "image_url", "image_url": {"url": image_url}},
+            {"type": "text", "text": prompt},
+        ],
+    })
+
+    response = client.chat.completions.create(
+        model=MODEL,
+        messages=messages,
+    )
+    return response.choices[0].message.content

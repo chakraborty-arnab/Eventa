@@ -1,0 +1,6 @@
+.env
+.git
+.DS_Store
+__pycache__/
+*.pyc
+activity_log.json

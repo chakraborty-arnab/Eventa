@@ -1,0 +1,10 @@
+services:
+  eventa:
+    build: .
+    env_file: .env
+    volumes:
+      - ./activity_log.json:/app/activity_log.json
+      - whisper_cache:/root/.cache/huggingface
+
+volumes:
+  whisper_cache:
